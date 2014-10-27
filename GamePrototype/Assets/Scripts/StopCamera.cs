@@ -15,7 +15,9 @@ public class StopCamera : MonoBehaviour {
 		if (other.gameObject.tag=="Player")
 		{
 			var camera = GameObject.Find("UpperScreenLimit").GetComponent<MoveCamera>();
-			camera.StopMoving();
+			
+			if(camera.IsMoving())
+				camera.StopMoving();
 			
 		}
 		

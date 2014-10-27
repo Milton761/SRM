@@ -19,6 +19,8 @@ public class Gui : MonoBehaviour {
 	{
 		boxposx = Screen.width/2-boxwidth/2;
 		boxposy = Screen.height/2-boxheight/2;
+		
+		FB.Init(OnInitComplete, OnHideUnity);
 	
 	}
 	void OnGUI () {
@@ -31,5 +33,15 @@ public class Gui : MonoBehaviour {
 		}
 		
 		
+	}
+	
+	private void OnInitComplete()
+	{
+		Debug.Log("FB.Init completed: Is user logged in? " + FB.IsLoggedIn);
+	}
+	
+	private void OnHideUnity(bool isGameShown)	
+	{
+		Debug.Log("Is game showing? " + isGameShown);
 	}
 }

@@ -22,7 +22,7 @@ public class DeadScript : MonoBehaviour {
 	void SavePlayerScore()
 	{
 
-		int score = (int)TimerScore.scoreTime;
+		int score = GameScore.Score;
 		int highscore = PlayerPrefs.GetInt ("highscore");
 
 

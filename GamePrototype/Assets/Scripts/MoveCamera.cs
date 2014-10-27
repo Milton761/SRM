@@ -5,13 +5,18 @@ public class MoveCamera : MonoBehaviour {
 
 
 	private Transform CameraTransform;
-	static bool moving = false;
+	 bool moving = false;
 	float movementStep ;
 
 	 float lastYVelocity;
 
 	 public Transform player;
 
+
+	public  bool IsMoving()
+	{
+		return moving;
+	}
 	public  void StopMoving()
 	{
 		Vector2 velo = player.transform.rigidbody2D.velocity;
@@ -27,7 +32,7 @@ public class MoveCamera : MonoBehaviour {
 		var vtest = Camera.main.ScreenToWorldPoint(new Vector3(0,0,0))-Camera.main.ScreenToWorldPoint(new Vector3(0,Screen.height,0));
 		float module = Vector3.Magnitude(vtest);
 		
-		movementStep = module/1.8f;
+		movementStep = module/1f;
 		CameraTransform = Camera.main.transform;
 	}
 	// Use this for initialization
@@ -60,7 +65,7 @@ public class MoveCamera : MonoBehaviour {
 			
 						pos.y = pos.y + movementStep;
 						//CameraTransform.Translate(pos);
-						CameraTransform.position = Vector3.Lerp (CameraTransform.position, pos, 1.5f * Time.deltaTime); 
+						CameraTransform.position = Vector3.Lerp (CameraTransform.position, pos, 1.4f * Time.deltaTime); 
 			
 		} 
 

@@ -8,7 +8,9 @@ public class SpawnScript : MonoBehaviour {
 	public  float min;
 	public  float max;
 
-
+	public bool spawnGoal;
+	
+	public GameObject GoalPrefab;
 	
 
 	
@@ -20,15 +22,24 @@ public class SpawnScript : MonoBehaviour {
 
 	public  void StartSpawning()
 	{
-		Spawn();
+		//Spawn();
+		
+		Invoke("Spawn",Random.Range(min,max));
 	}
 	
 	 void Spawn()
 	{
 
-			float random_x = Random.Range(transform.localPosition.x-transform.localScale.x/2,transform.localPosition.x+transform.localScale.x/2);
 			
-			//Debug.Log ("Random "+r);
+			//Instantiate Goal
+			if(spawnGoal)
+			{
+				Instantiate(GoalPrefab,transform.position,Quaternion.identity);
+			
+			}
+			//Instantiate obstacle
+			float random_x = Random.Range(transform.localPosition.x-transform.localScale.x/2,transform.localPosition.x+transform.localScale.x/2);
+		
 			var pos = new Vector3(random_x,transform.position.y,0);
 			Instantiate(obj[Random.Range(0,obj.Length)],pos,Quaternion.identity);
 			Invoke("Spawn",Random.Range(min,max));

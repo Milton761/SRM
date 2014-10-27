@@ -20,16 +20,21 @@ public class PlayerController : MonoBehaviour {
 
 	public static bool isMoving;
 	
+	public GameObject TouchSprite;
+	
+	GameObject touchSpriteObject;
+	
 	//Vector3 last_pos;
 	
 	// Use this for initialization
 	void Start () 
 	{
-	
+		Debug.Log ("Startint Player Controller");
 		isMoving = false;
 		//transform.rigidbody2D.AddForce(new Vector2(0,initialForce));
 		//transform.rigidbody2D.velocity = new Vector2(0,initialForce);
 	
+		touchSpriteObject = null;
 	}
 	
 
@@ -53,11 +58,17 @@ public class PlayerController : MonoBehaviour {
 					{
 						obj.GetComponent<SpawnScript>().StartSpawning();
 					}
-					TimerScore.StartTimer();
+					//TimerScore.StartTimer();
 				}
 
 				perpendicularOrientation = GetPerpendicularVectorOrientation();
 				Debug.LogWarning("New Angle: "+angle);
+				
+			
+				
+				
+				
+				
 			}
 				
 			
@@ -66,6 +77,10 @@ public class PlayerController : MonoBehaviour {
 		{
 			Debug.Log("Click Released");
 			clickPressed = false;
+			
+			Destroy(touchSpriteObject);
+			
+			touchSpriteObject=null;
 		}
 
 
@@ -91,6 +106,18 @@ public class PlayerController : MonoBehaviour {
 			//Get click position
 			var mousePos = Camera.main.ScreenToWorldPoint(mousevec);
 			var distvector = mousePos - transform.position ;
+			
+			//Instantiate gameobject when touching if doesnt exist
+			
+			if(touchSpriteObject ==null)
+				touchSpriteObject = (GameObject)Instantiate(TouchSprite,mousePos,Quaternion.identity);
+			else
+			{
+					//else move it
+					
+					touchSpriteObject.transform.position = mousePos;
+			}
+			
 			
 			//Distance from player to Click position
 			float distance = Vector3.Magnitude(distvector);
