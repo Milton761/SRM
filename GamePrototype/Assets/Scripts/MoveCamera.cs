@@ -32,7 +32,7 @@ public class MoveCamera : MonoBehaviour {
 		var vtest = Camera.main.ScreenToWorldPoint(new Vector3(0,0,0))-Camera.main.ScreenToWorldPoint(new Vector3(0,Screen.height,0));
 		float module = Vector3.Magnitude(vtest);
 		
-		movementStep = module/1f;
+		movementStep = module/1.8f;
 		CameraTransform = Camera.main.transform;
 	}
 	// Use this for initialization

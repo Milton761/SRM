@@ -17,14 +17,14 @@ public class SpawnScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		//Spawn();
+		Invoke("Spawn",Random.Range(min,max));
 	}
 
 	public  void StartSpawning()
 	{
 		//Spawn();
-		
 		Invoke("Spawn",Random.Range(min,max));
+		
 	}
 	
 	 void Spawn()

@@ -10,8 +10,8 @@ public class DeadScript : MonoBehaviour {
 		{
 			//Show Score
 			//Show Play Button
-			var camera = GameObject.Find("UpperScreenLimit").GetComponent<MoveCamera>();
-			camera.StopMoving();
+			//var camera = GameObject.Find("UpperScreenLimit").GetComponent<MoveCamera>();
+			//camera.StopMoving();
 			SavePlayerScore();
 			Application.LoadLevel(2);	
 		} 

@@ -25,7 +25,7 @@ public class ObstacleMovement : MonoBehaviour {
 			
 			Debug.Log("Result: "+result +" random: "+randomNumber);
 			
-			transform.rigidbody2D.velocity = result*initialForce;
+		//	transform.rigidbody2D.velocity = result*initialForce;
 			
 			
 	}
