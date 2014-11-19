@@ -113,10 +113,10 @@
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_search_box.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_list_row.xml" />
  <Reference Include="Parse.Unity">
- <HintPath>/Users/JL/Documents/Github/ScandinavianJumpv0/Assets/Parse.Unity.dll</HintPath>
+ <HintPath>/Users/JL/Documents/Github/scandinavian-project/ScandinavianJumpv0/Assets/Parse.Unity.dll</HintPath>
  </Reference>
  <Reference Include="IFacebook">
- <HintPath>/Users/JL/Documents/Github/ScandinavianJumpv0/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
+ <HintPath>/Users/JL/Documents/Github/scandinavian-project/ScandinavianJumpv0/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>

@@ -4,6 +4,7 @@ using System;
 using Parse;
 using System.Threading.Tasks;
 using System.Linq;
+using Facebook.MiniJSON;
 
 public class GuiScore : MonoBehaviour {
 
@@ -21,6 +22,11 @@ public class GuiScore : MonoBehaviour {
 	float buttonheight = Screen.height/5;
 
 	GUIStyle style ;
+
+	string Username {get;set;}
+	string UserImage {get;set;}
+
+	int UserScore {get;set;}
 
 	void Start()
 	{
@@ -41,10 +47,10 @@ public class GuiScore : MonoBehaviour {
 	
 	void OnGUI () {
 
-		int score = PlayerPrefs.GetInt ("score");
+		UserScore= PlayerPrefs.GetInt ("score");
 		int highscore = PlayerPrefs.GetInt ("highscore");
 		// Make a background box
-		GUI.Label(new Rect(boxposx+xoffset,boxposy,boxwidth,boxheight), "Your score: "+score.ToString(),style);
+		GUI.Label(new Rect(boxposx+xoffset,boxposy,boxwidth,boxheight), "Your score: "+UserScore.ToString(),style);
 		// Make a background box
 		GUI.Label(new Rect(boxposx+xoffset,boxposy+yoffset,boxwidth,boxheight), "Highscore: "+highscore.ToString(),style);
 		
@@ -71,11 +77,12 @@ public class GuiScore : MonoBehaviour {
 		} else {
 			Debug.Log ("FBLoginCallback: User canceled login");
 		}
+
+	
 	}
 	
 	
-	string Username {get;set;}
-	string UserImage {get;set;}
+
 
 
 
@@ -92,7 +99,8 @@ public class GuiScore : MonoBehaviour {
 				// Handle error
 			} else {
 			
-				FB.API("/me", Facebook.HttpMethod.GET, UserCallBack);
+				Debug.Log("Logged in. ID: " + FB.UserId);
+				FB.API("/me?fields=name,picture", Facebook.HttpMethod.GET, UserCallBack);
 			
 			
 				// Handle success
@@ -102,24 +110,45 @@ public class GuiScore : MonoBehaviour {
 	
 	
 	void UserCallBack(FBResult result) {
+
+		string get_data;
 		if (result.Error != null)
-		{                                                                      
-			Username = result.Text;
-			StartCoroutine("SaveScore");
+		{              
+
+			get_data = result.Text;
+
 		}
 		else
 		{
-			Debug.Log ("Error in UserCallBack"+result.Error);
+
+			get_data = result.Text;
+
+
 		}
-		
+
+
+		Debug.Log ("data: "+get_data);
+		var dict = Json.Deserialize(get_data) as IDictionary;
+
+		Username = dict["name"].ToString();
+		var pic_data = dict["picture"] as IDictionary;
+
+
+		var pic_dict = pic_data["data"] as IDictionary;
+
+
+		UserImage = pic_dict["url"].ToString();
+
+		Debug.Log ("image: "+UserImage);
+		StartCoroutine("SaveScore");
 	}
 	
 	
 	 IEnumerator   SaveScore()
 	{
-		FB.API("me?fields=name", Facebook.HttpMethod.GET, UserCallBack);
+		//FB.API("me?fields=name", Facebook.HttpMethod.GET, UserCallBack);
 		
-		var query = ParseObject.GetQuery("GameScore").WhereEqualTo("player_name","unknown");
+		var query = ParseObject.GetQuery("GameScore").WhereEqualTo("player_name",Username);
 		var resultTask =  query.FindAsync();
 		
 		while (!resultTask.IsCompleted) yield return null;
@@ -131,18 +160,52 @@ public class GuiScore : MonoBehaviour {
 			
 			
 			var results = resultTask.Result;
+
+			ParseGeoPoint userLocation = new ParseGeoPoint(LocationScript.Latitude,LocationScript.Longitude);
+
 		 	
 		 	if(results.Count()==0)
 		 	{
+				//If its the first time
+
 		 		ParseObject userScore = new ParseObject("GameScore");
+			
 		 		userScore["player_name"]= Username;
-				userScore["player_image"]= "unknown";
-				userScore["lat"]= "unknown";
-				userScore["lng"]= "unknown";
-				
+				userScore["player_image"]= UserImage;
+				userScore["geo_pos"] = userLocation;
+			//	userScore["lat"]= LocationScript.Latitude;
+			//	userScore["lng"]= LocationScript.Longitude;
+				userScore["score"] = UserScore;
+
+				Debug.Log ("saving async");
+
+
+			
 				userScore.SaveAsync();
 		 	
 		 	}
+			else
+			{
+				//Update the score if greater than previous score
+				var userScore = results.FirstOrDefault();
+
+				int prev_score = userScore.Get<int>("score");
+
+				if(prev_score< UserScore)
+				{
+					userScore["score"] = UserScore;
+					userScore["geo_pos"] = userLocation;
+				}
+
+
+
+				userScore.SaveAsync();
+
+
+
+			}
+
+			Application.LoadLevel(3);
 			
 			
 		}

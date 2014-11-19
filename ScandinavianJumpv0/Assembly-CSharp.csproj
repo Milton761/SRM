@@ -73,6 +73,8 @@
      <Compile Include="Assets\Scripts\GameScore.cs" />
      <Compile Include="Assets\Scripts\Gui.cs" />
      <Compile Include="Assets\Scripts\GuiScore.cs" />
+     <Compile Include="Assets\Scripts\LeaderboardGUI.cs" />
+     <Compile Include="Assets\Scripts\LocationScript.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\ScoreInfo.cs" />
      <Compile Include="Assets\Scripts\SpawnScript.cs" />
@@ -122,10 +124,10 @@
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_search_box.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_picker_list_row.xml" />
  <Reference Include="Parse.Unity">
- <HintPath>/Users/JL/Documents/Github/ScandinavianJumpv0/Assets/Parse.Unity.dll</HintPath>
+ <HintPath>/Users/JL/Documents/Github/scandinavian-project/ScandinavianJumpv0/Assets/Parse.Unity.dll</HintPath>
  </Reference>
  <Reference Include="IFacebook">
- <HintPath>/Users/JL/Documents/Github/ScandinavianJumpv0/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
+ <HintPath>/Users/JL/Documents/Github/scandinavian-project/ScandinavianJumpv0/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
