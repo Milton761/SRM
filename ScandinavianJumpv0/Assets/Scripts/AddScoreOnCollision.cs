@@ -20,6 +20,8 @@ public class AddScoreOnCollision : MonoBehaviour {
 		if(other.gameObject.tag=="Player")
 		{
 			AddScore();
+
+			//GetComponent<AudioSource>().Play();
 		}
 		
 

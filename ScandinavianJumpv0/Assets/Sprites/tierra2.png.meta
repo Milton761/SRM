@@ -1,7 +1,8 @@
 fileFormatVersion: 2
-guid: 0367bed1c6a0b6f448e9e56dac83a9f4
+guid: 0272f8fbcc8404052b88fe0ce4a10a21
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: tierra2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: a2f275868b2f135459b6d01422d3a678
+guid: a5eca6ac5804a408d9ca91f2529707fe
 TextureImporter:
   fileIDToRecycleName:
-    21300000: final2_0
-    21300002: final2_1
+    21300000: final2
+    21300002: final2_0
+    21300004: final2_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,17 +54,17 @@ TextureImporter:
         width: 288
         height: 496
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: final2_1
       rect:
         serializedVersion: 2
         x: 464
-        y: 132
+        y: 52
         width: 288
-        height: 384
+        height: 464
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

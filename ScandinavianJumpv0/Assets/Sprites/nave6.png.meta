@@ -1,7 +1,8 @@
 fileFormatVersion: 2
-guid: 327ce313531783547b0985e0a6ff30de
+guid: ec6c8aa0bed454b1facc5765337ddb6f
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: nave6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

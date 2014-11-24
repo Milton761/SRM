@@ -1,7 +1,8 @@
 fileFormatVersion: 2
-guid: b9e93f9229c984a44be94cf5f81241f9
+guid: 32f7161dc697e4c808539e58841f763a
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: juego
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

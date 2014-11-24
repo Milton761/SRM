@@ -1,7 +1,11 @@
 fileFormatVersion: 2
-guid: 29903ffdefa6e1a44ab1d571ceea6f6b
+guid: 46e1b24d67bc744718d20ea1e2765b20
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: meteoros2
+    21300002: meteoros2_0
+    21300004: meteoros2_1
+    21300006: meteoros2_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,13 +29,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +46,36 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: meteoros2_0
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 994
+        width: 390
+        height: 377
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meteoros2_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 571
+        width: 392
+        height: 352
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meteoros2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 845
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

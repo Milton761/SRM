@@ -13,11 +13,10 @@ public class DeadScript : MonoBehaviour {
 			//var camera = GameObject.Find("UpperScreenLimit").GetComponent<MoveCamera>();
 			//camera.StopMoving();
 			SavePlayerScore();
-			Application.LoadLevel(2);	
+			Application.LoadLevel(4);	
 		} 
 	}
 	
-
 
 	void SavePlayerScore()
 	{
@@ -39,6 +38,5 @@ public class DeadScript : MonoBehaviour {
 
 		PlayerPrefs.Save ();
 	}
-	
 	
 }

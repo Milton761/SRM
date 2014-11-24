@@ -1,12 +1,6 @@
 fileFormatVersion: 2
-guid: 158395765bed98b4bb9c7e7c534db589
+guid: 7852cb3281330c5448636347d5546056
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: sprites_0
-    21300002: sprites_1
-    21300004: sprites_2
-    21300006: sprites_3
-    21300008: sprites_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,13 +24,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -47,56 +41,6 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: sprites_0
-      rect:
-        serializedVersion: 2
-        x: 177
-        y: 240
-        width: 136
-        height: 167
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sprites_1
-      rect:
-        serializedVersion: 2
-        x: 117
-        y: 263
-        width: 40
-        height: 52
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sprites_2
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 145
-        width: 86
-        height: 110
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sprites_3
-      rect:
-        serializedVersion: 2
-        x: 189
-        y: 87
-        width: 91
-        height: 103
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sprites_4
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 0
-        width: 58
-        height: 91
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+    sprites: []
   spritePackingTag: 
   userData: 

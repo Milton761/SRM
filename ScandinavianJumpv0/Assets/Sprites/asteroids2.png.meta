@@ -1,7 +1,8 @@
 fileFormatVersion: 2
-guid: 7fdc712c57d27614f8148c27c0ed3564
+guid: 5b561b83e460f493bbab4abcf6681e71
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: asteroids2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

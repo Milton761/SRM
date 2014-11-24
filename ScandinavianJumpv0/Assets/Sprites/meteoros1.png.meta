@@ -1,7 +1,8 @@
 fileFormatVersion: 2
-guid: 4dd06b1479141d24d921840920da6fc7
+guid: 7f426931e5683468d8aee09f399734a8
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: meteoros1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

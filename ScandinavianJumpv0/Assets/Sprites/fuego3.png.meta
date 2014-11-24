@@ -1,7 +1,8 @@
 fileFormatVersion: 2
-guid: 9cefbafb591212d468959468e69be13a
+guid: 705fd51b7b9044db8aa2a6811968222b
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: fuego3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
