@@ -21,6 +21,8 @@ public class StickyScript : MonoBehaviour {
 		if (other.gameObject.tag == "Player") 
 		{
 
+
+			other.gameObject.GetComponent<PlayerController>().progress = 0;
 			other.gameObject.rigidbody2D.velocity = new Vector2(0,0);
 
 			other.gameObject.GetComponent<Animator>().SetBool("anim_jump",false);

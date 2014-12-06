@@ -18,21 +18,30 @@ public class PlayerController : MonoBehaviour {
 
 
 
-	float progress  = 0; 
+	public float progress  = 0; 
 	Vector2 pos ;
 	Vector2 size ;
 	Texture2D progressBarEmpty ;
 	Texture2D progressBarFull ;
 
+	float jumpBarOffset ;
+
+	float jumpBarWidth;
+
+	float jumpBarHeight;
+
 
 	void Start () {
 	
-		pos = new Vector2(20,40);
-		size = new Vector2(60,20);
+		//pos = new Vector2(Screen.width*0.8f,0);
+		jumpBarWidth = Screen.width*0.1f;
+		jumpBarHeight = Screen.height*0.04f;
+		size = new Vector2(jumpBarWidth,jumpBarHeight);
 
 		progressBarEmpty = new Texture2D(128,128,TextureFormat.ARGB32,false);
 		progressBarFull = new Texture2D(128,128,TextureFormat.ARGB32,false);
 
+		jumpBarOffset = Screen.height*0.15f;
 		SetTextureColor(Color.red,progressBarEmpty);
 		
 		SetTextureColor(Color.white,progressBarFull);
@@ -90,8 +99,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void  OnGUI() {
-		GUI.DrawTexture(new Rect(pos.x, pos.y, size.x, size.y), progressBarEmpty);
-		GUI.DrawTexture(new Rect(pos.x, pos.y, size.x * Mathf.Clamp01(progress), size.y), progressBarFull); 
+
+
+		Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+		GUI.DrawTexture(new Rect(pos.x, Screen.height-pos.y - jumpBarOffset, size.x, size.y), progressBarEmpty);
+		GUI.DrawTexture(new Rect(pos.x, Screen.height- pos.y- jumpBarOffset, size.x * Mathf.Clamp01(progress), size.y), progressBarFull); 
 		
 	
 		

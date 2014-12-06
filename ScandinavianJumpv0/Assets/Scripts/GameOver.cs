@@ -26,9 +26,9 @@ public class GameOver : MonoBehaviour {
 	void OnGUI () {
 		
 		GUI.skin = skin;
-		int score = PlayerPrefs.GetInt ("score");
+		UserScore= PlayerPrefs.GetInt ("score");
 		//score
-		GUI.Label (new Rect (scoreX, scoreY, scoreWidth, scoreHeight), "Your Score: " + score.ToString ());
+		GUI.Label (new Rect (scoreX, scoreY, scoreWidth, scoreHeight), "Your Score: " + UserScore.ToString ());
 
 		if (GUI.Button (new Rect (Screen.width * 0.42f, Screen.height * 0.85f, Screen.width * 0.15f, Screen.height * 0.08f), "Ranking"))
 		{
@@ -45,7 +45,19 @@ public class GameOver : MonoBehaviour {
 	
 	private void FBLogin() {
 		Debug.Log ("In FBLogin");
-		FB.Login("user_about_me, user_relationships, user_birthday, user_location", FBLoginCallback);
+
+		if(FB.IsLoggedIn)
+		{
+
+			Debug.Log("Already Logged In");
+			FB.API("/me?fields=name,picture", Facebook.HttpMethod.GET, UserCallBack);
+		}
+		else
+		{
+			FB.Login("user_about_me, user_relationships, user_birthday, user_location", FBLoginCallback);
+		}
+
+
 	}
 	
 	private void FBLoginCallback(FBResult result) {
@@ -158,7 +170,7 @@ public class GameOver : MonoBehaviour {
 				//	userScore["lng"]= LocationScript.Longitude;
 				userScore["score"] = UserScore;
 				
-				Debug.Log ("saving async");
+				Debug.Log ("Creating score");
 				
 				
 				
@@ -167,20 +179,25 @@ public class GameOver : MonoBehaviour {
 			}
 			else
 			{
+
+			
 				//Update the score if greater than previous score
 				var userScore = results.FirstOrDefault();
 				
 				int prev_score = userScore.Get<int>("score");
+
+				Debug.Log ("Updating: new score: "+UserScore+" prev "+prev_score);
 				
 				if(prev_score< UserScore)
 				{
 					userScore["score"] = UserScore;
 					userScore["geo_pos"] = userLocation;
+					userScore.SaveAsync();
 				}
 				
 				
 				
-				userScore.SaveAsync();
+
 				
 				
 				
