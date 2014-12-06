@@ -24,6 +24,8 @@ public class Gui : MonoBehaviour {
 	
 	void OnMouseUp()
 	{
+		GetComponent<TextMesh>().color = OnMouseExitColor;
+
 		Application.LoadLevel (2);
 	}
 

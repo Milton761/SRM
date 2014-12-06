@@ -18,6 +18,8 @@ public class Scores : MonoBehaviour {
 	
 	void OnMouseUp()
 	{
+		GetComponent<TextMesh>().color = OnMouseExitColor;
+
 		Application.LoadLevel (3);
 	}
 }
