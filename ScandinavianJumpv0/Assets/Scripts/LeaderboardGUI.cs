@@ -12,7 +12,8 @@ public class LeaderboardGUI : MonoBehaviour {
 		public string score;
 		
 	}
-	
+	public GUISkin skin = null;
+
 	
 	List<Scores> scoresList; 
 	// Use this for initialization
@@ -68,21 +69,17 @@ public class LeaderboardGUI : MonoBehaviour {
 
 	void OnGUI()
 	{
+		GUI.skin = skin;
 
 		float win=Screen.width*0.6f;
-		float w1=win*0.35f; float w2=win*0.15f; float w3=win*0.35f;
-
-		foreach (var item in scoresList)
+		int i = 0;
+     	foreach (var item in scoresList)
 		{
-		
-			
-				GUILayout.BeginHorizontal();
-				GUILayout.Label(item.name, GUILayout.Width(w1));
-				GUILayout.Label(item.score, GUILayout.Width(w2));
-				
-				GUILayout.EndHorizontal();                     
-			
+			GUI.Label(new Rect(Screen.width * 0.32f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.28f,Screen.height*0.09f), item.name);
+			GUI.Label(new Rect(Screen.width * 0.6f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.7f,Screen.height*0.09f), item.score);                     
+			i++;
 		}
+
 	}
 
 	public Color OnMouseOverColor = Color.blue;
