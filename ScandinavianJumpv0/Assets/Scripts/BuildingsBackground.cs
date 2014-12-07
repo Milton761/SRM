@@ -12,7 +12,7 @@ public class BuildingsBackground : MonoBehaviour
 	void Start ()
 	{
 		startPosition = transform.position;
-		Debug.Log (startPosition);
+		//Debug.Log (startPosition);
 		prevCameraPos = 0;
 	}
 	
@@ -28,7 +28,7 @@ public class BuildingsBackground : MonoBehaviour
 			tmp.x = startPosition.x + (2*tileSizeZ);
 			transform.position = tmp;
 			startPosition = tmp;
-			Debug.Log (BuildingN + ")  " + transform.position.x + "  " + currentCameraPos);
+//			Debug.Log (BuildingN + ")  " + transform.position.x + "  " + currentCameraPos);
 
 		}
 	}

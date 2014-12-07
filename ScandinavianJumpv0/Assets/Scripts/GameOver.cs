@@ -4,6 +4,7 @@ using Parse;
 using System;
 using Facebook.MiniJSON;
 using System.Linq;
+using System.Threading.Tasks;
 
 public class GameOver : MonoBehaviour {
 
@@ -14,6 +15,8 @@ public class GameOver : MonoBehaviour {
 	
 	int UserScore {get;set;}
 	public GUISkin skin = null;
+
+
 	
 	void Start()
 	{
@@ -24,7 +27,8 @@ public class GameOver : MonoBehaviour {
 
 	}
 	void OnGUI () {
-		
+
+
 		GUI.skin = skin;
 
 		UserScore= PlayerPrefs.GetInt ("score");
@@ -38,6 +42,11 @@ public class GameOver : MonoBehaviour {
 		if (GUI.Button (new Rect (Screen.width * 0.55f, Screen.height * 0.85f, Screen.width * 0.1f, Screen.height * 0.08f), "Menu"))
 		{
 			Application.LoadLevel(1);
+		}
+
+		if (GUI.Button (new Rect (Screen.width * 0.75f, Screen.height * 0.85f, Screen.width * 0.1f, Screen.height * 0.08f), "Share"))
+		{
+			PostFeed();
 		}
 	}
 
@@ -101,7 +110,43 @@ public class GameOver : MonoBehaviour {
 			}
 		}
 	}
-	
+
+	private void PostFeed() 
+	{
+
+		//FB.API("/me/feed?message='Rocket, the scandinavian frog, jumped over "+UserScore+" trash bins'", Facebook.HttpMethod.POST, PostFeedCallBack);
+		FB.Feed(
+			link: "https://www.facebook.com/pages/LookOn/672865992784624?ref=hl",
+			linkName: "Play Scandinavian Rocket From Mars",
+			linkCaption: "The Scandinavian Team",
+			linkDescription: "Rocket, the scandinavian frog, jumped over "+UserScore+" trash bin(s)",
+			picture: "https://lh4.googleusercontent.com/-v7BKEjsrEa0/VIR_-vy-lKI/AAAAAAAABb0/DaeAwKrzejc/w286-h156-no/Screen%2BShot%2B2014-12-07%2Bat%2B11.11.03%2BAM.png",
+			callback: PostFeedCallBack
+			);
+				
+
+	}
+
+	void PostFeedCallBack(FBResult result)
+	{
+
+		string get_data;
+		if (result.Error != null)
+		{              
+			
+			get_data = result.Text;
+			
+		}
+		else
+		{
+			
+			get_data = result.Text;
+			
+			
+		}
+
+		Debug.Log ("get_data: "+get_data);
+	}
 	
 	void UserCallBack(FBResult result) {
 		
@@ -154,7 +199,8 @@ public class GameOver : MonoBehaviour {
 			
 			
 			var results = resultTask.Result;
-			
+
+
 			ParseGeoPoint userLocation = new ParseGeoPoint(LocationScript.Latitude,LocationScript.Longitude);
 			
 			
@@ -203,6 +249,9 @@ public class GameOver : MonoBehaviour {
 				
 				
 			}
+
+		
+
 			
 			Application.LoadLevel(5);
 			

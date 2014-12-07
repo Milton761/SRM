@@ -1314,7 +1314,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 648460418}
-  - 114: {fileID: 648460419}
   - 224: {fileID: 648460420}
   m_Layer: 0
   m_Name: GUI
@@ -1335,19 +1334,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!114 &648460419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 648460417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32342d2b9b2e0486d88d9cd9afe37a3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnMouseOverColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
-  OnMouseExitColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!224 &648460420
 RectTransform:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections;
 using Parse;
 using System.Collections.Generic;
+using System.Linq;
 
 public class LeaderboardGUI : MonoBehaviour {
 
@@ -17,7 +18,9 @@ public class LeaderboardGUI : MonoBehaviour {
 	
 	List<Scores> scoresList; 
 	// Use this for initialization
-	void Start () {
+	IEnumerator Start () {
+
+		yield return new WaitForSeconds(0.8f);
 
 		StartCoroutine("LoadNearestScores");
 
@@ -56,8 +59,10 @@ public class LeaderboardGUI : MonoBehaviour {
 			var results = resultTask.Result;
 
 
-			foreach (var item in results) 
+			var resultsList = results.OrderBy(item=>item.Get<int>("score")).Reverse().ToList();
+			foreach(var item in resultsList) 
 			{
+
 				Debug.Log("name: "+item["player_name"]);
 				Debug.Log("score: "+item["score"]);
 
@@ -73,12 +78,18 @@ public class LeaderboardGUI : MonoBehaviour {
 
 		float win=Screen.width*0.6f;
 		int i = 0;
-     	foreach (var item in scoresList)
+
+		if(scoresList!=null)
 		{
-			GUI.Label(new Rect(Screen.width * 0.32f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.28f,Screen.height*0.09f), item.name);
-			GUI.Label(new Rect(Screen.width * 0.6f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.7f,Screen.height*0.09f), item.score);                     
-			i++;
+			foreach (var item in scoresList)
+			{
+				GUI.Label(new Rect(Screen.width * 0.32f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.28f,Screen.height*0.09f), item.name);
+				GUI.Label(new Rect(Screen.width * 0.6f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.7f,Screen.height*0.09f), item.score);                     
+				i++;
+			}
+
 		}
+     
 
 	}
 

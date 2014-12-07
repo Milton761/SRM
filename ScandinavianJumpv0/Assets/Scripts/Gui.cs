@@ -6,7 +6,9 @@ public class Gui : MonoBehaviour {
 	
 	void Start()
 	{
-		FB.Init(OnInitComplete, OnHideUnity);
+
+		if(!FB.IsInitialized)
+			FB.Init(OnInitComplete, OnHideUnity);
 	
 	}
 	public Color OnMouseOverColor = Color.blue;

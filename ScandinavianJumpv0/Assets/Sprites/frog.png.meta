@@ -1,6 +1,19 @@
 fileFormatVersion: 2
 guid: 6f21ba565bfb08941b05889a4d9017b6
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: frog_0
+    21300002: frog_1
+    21300004: frog_2
+    21300006: frog_3
+    21300008: frog_4
+    21300010: frog_5
+    21300012: frog_6
+    21300014: frog_7
+    21300016: frog_8
+    21300018: frog_9
+    21300020: frog_10
+    21300022: frog_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

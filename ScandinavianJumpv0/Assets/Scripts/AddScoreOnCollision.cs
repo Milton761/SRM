@@ -33,6 +33,14 @@ public class AddScoreOnCollision : MonoBehaviour {
 		{
 			score = true;
 			GameScore.Score++;
+
+			if(GameScore.Score!=0 && GameScore.Score%SettingsScript.ScoreLimit==0)
+			{
+				//GameObject.FindGameObjectWithTag("Player").transform.rigidbody2D.gravityScale+=SettingsScript.GravityIncrease;
+				PlayerController.touchTimeScale +=0.001f;
+				Camera.main.GetComponent<CameraMovement>().constantMovement+=SettingsScript.CameraMovementIncrease;
+				Camera.main.GetComponent<AudioSource>().Play();
+			}
 			
 		}
 		

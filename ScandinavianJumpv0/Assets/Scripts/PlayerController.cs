@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	float initTime;
 	float touchTime;
 
-	float constantInit = 40 ;
+
 
 	bool jump;
 
@@ -24,7 +24,14 @@ public class PlayerController : MonoBehaviour {
 	Texture2D progressBarEmpty ;
 	Texture2D progressBarFull ;
 
+	static public float touchTimeScale = 2;
+
+
+
+
 	float jumpBarOffset ;
+
+	float jumpBarWidthOffset;
 
 	float jumpBarWidth;
 
@@ -34,7 +41,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 	
 		//pos = new Vector2(Screen.width*0.8f,0);
-		jumpBarWidth = Screen.width*0.1f;
+		jumpBarWidth = Screen.width*0.11f;
 		jumpBarHeight = Screen.height*0.04f;
 		size = new Vector2(jumpBarWidth,jumpBarHeight);
 
@@ -42,6 +49,7 @@ public class PlayerController : MonoBehaviour {
 		progressBarFull = new Texture2D(128,128,TextureFormat.ARGB32,false);
 
 		jumpBarOffset = Screen.height*0.15f;
+		jumpBarWidthOffset = Screen.width*0.05f;
 		SetTextureColor(Color.red,progressBarEmpty);
 		
 		SetTextureColor(Color.white,progressBarFull);
@@ -70,7 +78,9 @@ public class PlayerController : MonoBehaviour {
 
 		if(Input.GetMouseButtonUp(0))
 		{
-			touchTime = (Time.time-initTime)*constantInit;
+
+			Debug.Log ("Real touch time: "+(Time.time-initTime));
+			touchTime = (Time.time-initTime)*touchTimeScale;
 
 
 			jump = true;
@@ -90,7 +100,10 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(jump)
 		{
-			transform.rigidbody2D.AddForce(new Vector2(touchTime*Xforce,Yforce*touchTime));
+
+			Debug.Log("Touch Time: "+touchTime);
+			Debug.Log("Force: "+touchTime*Xforce+" "+Yforce*touchTime);
+			transform.rigidbody2D.AddForce(new Vector2(touchTime*Xforce,(400*touchTime+480)/1.4f));
 
 			jump = false;
 		}
@@ -102,8 +115,8 @@ public class PlayerController : MonoBehaviour {
 
 
 		Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-		GUI.DrawTexture(new Rect(pos.x, Screen.height-pos.y - jumpBarOffset, size.x, size.y), progressBarEmpty);
-		GUI.DrawTexture(new Rect(pos.x, Screen.height- pos.y- jumpBarOffset, size.x * Mathf.Clamp01(progress), size.y), progressBarFull); 
+		GUI.DrawTexture(new Rect(pos.x-jumpBarWidthOffset, Screen.height-pos.y - jumpBarOffset, size.x, size.y), progressBarEmpty);
+		GUI.DrawTexture(new Rect(pos.x-jumpBarWidthOffset, Screen.height- pos.y- jumpBarOffset, size.x * Mathf.Clamp01(progress), size.y), progressBarFull); 
 		
 	
 		
