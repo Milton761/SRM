@@ -32,8 +32,11 @@ public class GuiScore : MonoBehaviour {
 			int highscore = PlayerPrefs.GetInt ("highscore");
 			var g1 = transform.Find ("myScore").GetComponent<GUIText> ();
 			g1.text = score.ToString();
+			g1.fontSize = (int)(0.14f * Screen.height);
 			var g2 = transform.Find ("maxScore").GetComponent<GUIText> ();
 			g2.text = highscore.ToString();
+			g2.fontSize = (int)(0.14f * Screen.height);
+
 		}
 		catch
 		{
@@ -51,7 +54,6 @@ public class GuiScore : MonoBehaviour {
 		//GUI.Label (new Rect (myScoreX, myScoreY, myScoreWidth, myScoreHeight), score.ToString());
 		//highscore
 		//GUI.Label (new Rect (maxScoreX, maxScoreY, maxScoreWidth, maxScoreHeight), highscore.ToString());
-
 
 	}
 

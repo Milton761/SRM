@@ -30,21 +30,23 @@ public class GameOver : MonoBehaviour {
 
 
 		GUI.skin = skin;
+		GUI.skin.button.fontSize = (int)(0.032f * Screen.height);
+		GUI.skin.label.fontSize = (int)(0.052f * Screen.height);
 
 		UserScore= PlayerPrefs.GetInt ("score");
 		//score
 		GUI.Label (new Rect (scoreX, scoreY, scoreWidth, scoreHeight), "Your Score: " + UserScore.ToString ());
 
-		if (GUI.Button (new Rect (Screen.width * 0.35f, Screen.height * 0.85f, Screen.width * 0.1f, Screen.height * 0.08f), "Ranking"))
+		if (GUI.Button (new Rect (Screen.width * 0.19f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Ranking"))
 		{
 			FBLogin();
 		}
-		if (GUI.Button (new Rect (Screen.width * 0.55f, Screen.height * 0.85f, Screen.width * 0.1f, Screen.height * 0.08f), "Menu"))
+		if (GUI.Button (new Rect (Screen.width * 0.43f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Menu"))
 		{
 			Application.LoadLevel(1);
 		}
 
-		if (GUI.Button (new Rect (Screen.width * 0.75f, Screen.height * 0.85f, Screen.width * 0.1f, Screen.height * 0.08f), "Share"))
+		if (GUI.Button (new Rect (Screen.width * 0.67f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Share"))
 		{
 			PostFeed();
 		}
@@ -116,7 +118,7 @@ public class GameOver : MonoBehaviour {
 
 		//FB.API("/me/feed?message='Rocket, the scandinavian frog, jumped over "+UserScore+" trash bins'", Facebook.HttpMethod.POST, PostFeedCallBack);
 		FB.Feed(
-			link: "https://www.facebook.com/pages/LookOn/672865992784624?ref=hl",
+			link: "https://www.facebook.com/rockethefrog",
 			linkName: "Play Scandinavian Rocket From Mars",
 			linkCaption: "The Scandinavian Team",
 			linkDescription: "Rocket, the scandinavian frog, jumped over "+UserScore+" trash bin(s)",
@@ -181,12 +183,12 @@ public class GameOver : MonoBehaviour {
 		Debug.Log ("image: "+UserImage);
 		StartCoroutine("SaveScore");
 	}
-	
-	
+
 	IEnumerator   SaveScore()
 	{
 		//FB.API("me?fields=name", Facebook.HttpMethod.GET, UserCallBack);
-		
+				
+
 		var query = ParseObject.GetQuery("GameScore").WhereEqualTo("player_name",Username);
 		var resultTask =  query.FindAsync();
 		
@@ -251,8 +253,6 @@ public class GameOver : MonoBehaviour {
 			}
 
 		
-
-			
 			Application.LoadLevel(5);
 			
 			

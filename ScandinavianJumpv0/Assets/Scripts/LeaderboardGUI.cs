@@ -75,6 +75,7 @@ public class LeaderboardGUI : MonoBehaviour {
 	void OnGUI()
 	{
 		GUI.skin = skin;
+		GUI.skin.label.fontSize = (int)(0.032f * Screen.height);
 
 		float win=Screen.width*0.6f;
 		int i = 0;
@@ -83,8 +84,8 @@ public class LeaderboardGUI : MonoBehaviour {
 		{
 			foreach (var item in scoresList)
 			{
-				GUI.Label(new Rect(Screen.width * 0.32f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.28f,Screen.height*0.09f), item.name);
-				GUI.Label(new Rect(Screen.width * 0.6f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.7f,Screen.height*0.09f), item.score);                     
+				GUI.Label(new Rect(Screen.width * 0.2f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.44f,Screen.height*0.09f), item.name);
+				GUI.Label(new Rect(Screen.width * 0.7f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.1f,Screen.height*0.09f), item.score);                     
 				i++;
 			}
 
