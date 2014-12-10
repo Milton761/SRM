@@ -16,7 +16,7 @@ public class GameOver : MonoBehaviour {
 	int UserScore {get;set;}
 	public GUISkin skin = null;
 
-	//public admobScript banner;
+	public admobScript banner;
 	
 	void Start()
 	{
@@ -28,7 +28,7 @@ public class GameOver : MonoBehaviour {
 	}
 	void OnGUI () {
 
-		//banner.ShowBanner ();
+		banner.ShowBanner ();
 
 		GUI.skin = skin;
 		GUI.skin.button.fontSize = (int)(0.032f * Screen.height);
