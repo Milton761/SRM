@@ -245,25 +245,25 @@
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values\wallet_attrs.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\color\common_signin_btn_text_light.xml" />
  <Reference Include="Parse.Unity">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/Parse.Unity.dll</HintPath>
+ <HintPath>C:/Users/Carola/Documents/GitHub/scandinavian/scandinavian-project/ScandinavianJumpv0/Assets/Parse.Unity.dll</HintPath>
  </Reference>
  <Reference Include="IFacebook">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
+ <HintPath>C:/Users/Carola/Documents/GitHub/scandinavian/scandinavian-project/ScandinavianJumpv0/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Prototype/Classes/ProBuilderCore.dll</HintPath>
+ <HintPath>C:/Users/Carola/Documents/GitHub/scandinavian/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Prototype/Classes/ProBuilderCore.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderMeshOps">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Prototype/Classes/ProBuilderMeshOps.dll</HintPath>
+ <HintPath>C:/Users/Carola/Documents/GitHub/scandinavian/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Prototype/Classes/ProBuilderMeshOps.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderEditor">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Prototype/Editor/ProBuilderEditor.dll</HintPath>
+ <HintPath>C:/Users/Carola/Documents/GitHub/scandinavian/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Prototype/Editor/ProBuilderEditor.dll</HintPath>
  </Reference>
  <Reference Include="ProCore">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
+ <HintPath>C:/Users/Carola/Documents/GitHub/scandinavian/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Shared/Code/SixBySeven.dll</HintPath>
+ <HintPath>C:/Users/Carola/Documents/GitHub/scandinavian/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

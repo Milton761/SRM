@@ -40,11 +40,10 @@ public class LeaderboardGUI : MonoBehaviour {
 	{
 
 		ParseGeoPoint userLocation = new ParseGeoPoint(LocationScript.Latitude,LocationScript.Longitude);
-		ParseQuery<ParseObject> query = ParseObject.GetQuery("GameScore");
+		ParseQuery<ParseObject> query = ParseObject.GetQuery("GameScore").WhereWithinDistance("geo_point",userLocation,ParseGeoDistance.FromKilometers(2)).Limit(5);
 
 
-		query.WhereWithinDistance("geo_point",userLocation,ParseGeoDistance.FromKilometers(2));
-		query.Limit(5);
+
 
 		var resultTask = query.FindAsync();
 

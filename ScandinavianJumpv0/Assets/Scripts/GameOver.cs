@@ -16,7 +16,7 @@ public class GameOver : MonoBehaviour {
 	int UserScore {get;set;}
 	public GUISkin skin = null;
 
-
+	public admobScript banner;
 	
 	void Start()
 	{
@@ -28,6 +28,7 @@ public class GameOver : MonoBehaviour {
 	}
 	void OnGUI () {
 
+		//banner.ShowBanner ();
 
 		GUI.skin = skin;
 		GUI.skin.button.fontSize = (int)(0.032f * Screen.height);
@@ -48,7 +49,7 @@ public class GameOver : MonoBehaviour {
 
 		if (GUI.Button (new Rect (Screen.width * 0.67f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Share"))
 		{
-			PostFeed();
+			FBLoginShare();
 		}
 	}
 
@@ -67,6 +68,23 @@ public class GameOver : MonoBehaviour {
 			
 			Debug.Log("Already Logged In");
 			FB.API("/me?fields=name,picture", Facebook.HttpMethod.GET, UserCallBack);
+		}
+		else
+		{
+			FB.Login("user_about_me, user_relationships, user_birthday, user_location", FBLoginCallback);
+		}
+		
+		
+	}
+
+	private void FBLoginShare() {
+		Debug.Log ("In FBLogin");
+		
+		if(FB.IsLoggedIn)
+		{
+			
+			Debug.Log("Already Logged In");
+			PostFeed();
 		}
 		else
 		{
@@ -234,12 +252,17 @@ public class GameOver : MonoBehaviour {
 				var userScore = results.FirstOrDefault();
 				
 				int prev_score = userScore.Get<int>("score");
+
+
+				var highscore = PlayerPrefs.GetInt ("highscore");
+
+				var localScore = (highscore>UserScore)? highscore: UserScore;
 				
 				Debug.Log ("Updating: new score: "+UserScore+" prev "+prev_score);
 				
-				if(prev_score< UserScore)
+				if(prev_score< localScore)
 				{
-					userScore["score"] = UserScore;
+					userScore["score"] = localScore;
 					userScore["geo_pos"] = userLocation;
 					userScore.SaveAsync();
 				}

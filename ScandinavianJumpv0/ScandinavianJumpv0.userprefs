@@ -1,25 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ScoreInfo.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameOver.cs">
     <Files>
-      <File FileName="Assets\Scripts\ScoreInfo.cs" Line="12" Column="22" />
-      <File FileName="Assets\Scripts\GameOver.cs" Line="198" Column="29" />
-      <File FileName="Assets\Scripts\GuiScore.cs" Line="38" Column="47" />
-      <File FileName="Assets\Scripts\LeaderboardGUI.cs" Line="83" Column="23" />
-      <File FileName="Assets\Scripts\SettingsScript.cs" Line="7" Column="33" />
-      <File FileName="Assets\Scripts\AddScoreOnCollision.cs" Line="37" Column="60" />
+      <File FileName="Assets\Scripts\LeaderboardGUI.cs" Line="46" Column="3" />
+      <File FileName="Assets\Scripts\GameOver.cs" Line="265" Column="37" />
+      <File FileName="Assets\Scripts\DeadScript.cs" Line="26" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Scripts" expanded="True">
-              <Node name="ScoreInfo.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
