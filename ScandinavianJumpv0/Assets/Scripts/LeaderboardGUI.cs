@@ -82,11 +82,13 @@ public class LeaderboardGUI : MonoBehaviour {
 
 		if(scoresList!=null)
 		{
+
 			foreach (var item in scoresList)
 			{
-				GUI.Label(new Rect(Screen.width * 0.2f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.44f,Screen.height*0.09f), item.name);
-				GUI.Label(new Rect(Screen.width * 0.7f,Screen.height * 0.3f + (i * Screen.height*0.09f), Screen.width*0.1f,Screen.height*0.09f), item.score);                     
+				GUI.Label(new Rect(Screen.width * 0.2f,Screen.height * 0.2f + (i * Screen.height*0.09f), Screen.width*0.44f,Screen.height*0.09f), item.name);
+				GUI.Label(new Rect(Screen.width * 0.7f,Screen.height * 0.2f + (i * Screen.height*0.09f), Screen.width*0.1f,Screen.height*0.09f), item.score);                     
 				i++;
+				if (i == 5) break;
 			}
 
 		}

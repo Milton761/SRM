@@ -9,9 +9,9 @@ public class ScoreInfo : MonoBehaviour {
 	
 	float xoffset= 100;
 	
-	float scoreWidth = 10;
+	float scoreWidth = 20;
 	
-	float scoreHeight = 10;
+	float scoreHeight = 20;
 	
 	GUIStyle style ;
 
@@ -23,7 +23,7 @@ public class ScoreInfo : MonoBehaviour {
 		GameScore.Score = 0;
 		style = new GUIStyle();
 		style.normal.textColor= Color.white;
-		style.fontSize=20;
+		style.fontSize=25;
 	}
 
 	public static void StartTimer()
@@ -47,11 +47,12 @@ public class ScoreInfo : MonoBehaviour {
 	
 	}
 	
-	
+	public GUISkin skin = null;
 	void OnGUI()
 	{
-	
-		GUI.Label(new Rect(Screen.width*0.5f,0,scoreWidth,scoreHeight),"Score: "+ GameScore.Score,style);
+		GUI.skin = skin;
+
+		GUI.Label(new Rect(Screen.width*0.5f,0,scoreWidth,scoreHeight), "" + GameScore.Score, style);
 	}
 	
 
