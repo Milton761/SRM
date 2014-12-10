@@ -27,8 +27,20 @@ public class Gui : MonoBehaviour {
 	void OnMouseUp()
 	{
 		GetComponent<TextMesh>().color = OnMouseExitColor;
+		StartCoroutine("StartLevel");
 
-		Application.LoadLevel (2);
+	}
+
+	IEnumerator StartLevel()
+	{
+
+		var audio = Camera.main.GetComponent<AudioSource>();
+
+		audio.Play();
+
+		yield return new WaitForSeconds(audio.clip.length);
+
+		Application.LoadLevel (2);  
 	}
 
 	private void OnInitComplete()

@@ -40,7 +40,8 @@ public class LeaderboardGUI : MonoBehaviour {
 	{
 
 		ParseGeoPoint userLocation = new ParseGeoPoint(LocationScript.Latitude,LocationScript.Longitude);
-		ParseQuery<ParseObject> query = ParseObject.GetQuery("GameScore").WhereWithinDistance("geo_point",userLocation,ParseGeoDistance.FromKilometers(2)).Limit(5);
+		ParseQuery<ParseObject> query = ParseObject.GetQuery("GameScore").OrderByDescending("score").Limit(5);
+			//.WhereWithinDistance("geo_point",userLocation,ParseGeoDistance.FromKilometers(2))
 
 
 
@@ -58,8 +59,8 @@ public class LeaderboardGUI : MonoBehaviour {
 			var results = resultTask.Result;
 
 
-			var resultsList = results.OrderBy(item=>item.Get<int>("score")).Reverse().ToList();
-			foreach(var item in resultsList) 
+			//var resultsList = results.OrderBy(item=>item.Get<int>("score")).Reverse().ToList();
+			foreach(var item in results) 
 			{
 
 				Debug.Log("name: "+item["player_name"]);

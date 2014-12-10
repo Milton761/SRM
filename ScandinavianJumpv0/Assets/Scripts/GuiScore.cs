@@ -74,6 +74,18 @@ public class GuiScore : MonoBehaviour {
 	
 	void OnMouseUp()
 	{
-		Application.LoadLevel (1);
+		StartCoroutine("StartLevel");
+	}
+
+	IEnumerator StartLevel()
+	{
+		
+		var audio = Camera.main.GetComponent<AudioSource>();
+		
+		audio.Play();
+		
+		yield return new WaitForSeconds(audio.clip.length);
+		
+		Application.LoadLevel (1);  
 	}
 }

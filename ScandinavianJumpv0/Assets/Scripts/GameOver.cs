@@ -16,7 +16,7 @@ public class GameOver : MonoBehaviour {
 	int UserScore {get;set;}
 	public GUISkin skin = null;
 
-	public admobScript banner;
+	//public admobScript banner;
 	
 	void Start()
 	{
@@ -40,18 +40,55 @@ public class GameOver : MonoBehaviour {
 
 		if (GUI.Button (new Rect (Screen.width * 0.19f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Ranking"))
 		{
-			FBLogin();
+			StartCoroutine("StartLogin");
 		}
 		if (GUI.Button (new Rect (Screen.width * 0.43f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Menu"))
 		{
-			Application.LoadLevel(1);
+			StartCoroutine("StartLevel");
 		}
 
 		if (GUI.Button (new Rect (Screen.width * 0.67f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Share"))
 		{
-			FBLoginShare();
+			StartCoroutine("StartLoginShare");
 		}
 	}
+
+	IEnumerator StartLevel()
+	{
+		
+		var audio = Camera.main.GetComponent<AudioSource>();
+		
+		audio.Play();
+		
+		yield return new WaitForSeconds(audio.clip.length);
+		
+		Application.LoadLevel (1);  
+	}
+
+	IEnumerator StartLogin()
+	{
+		
+		var audio = Camera.main.GetComponent<AudioSource>();
+		
+		audio.Play();
+		
+		yield return new WaitForSeconds(audio.clip.length);
+		
+		FBLogin();
+	}
+
+	IEnumerator StartLoginShare()
+	{
+		
+		var audio = Camera.main.GetComponent<AudioSource>();
+		
+		audio.Play();
+		
+		yield return new WaitForSeconds(audio.clip.length);
+		
+		FBLoginShare();  
+	}
+
 
 
 	void OnMouseUp()
@@ -88,7 +125,7 @@ public class GameOver : MonoBehaviour {
 		}
 		else
 		{
-			FB.Login("user_about_me, user_relationships, user_birthday, user_location", FBLoginCallback);
+			FB.Login("user_about_me, user_relationships, user_birthday, user_location", FBLoginShareCallback);
 		}
 		
 		
@@ -100,6 +137,20 @@ public class GameOver : MonoBehaviour {
 		if(FB.IsLoggedIn) {
 			//	showLoggedIn();
 			StartCoroutine("ParseLogin");
+		} else {
+			Debug.Log ("FBLoginCallback: User canceled login");
+		}
+		
+		
+	}
+
+	private void FBLoginShareCallback(FBResult result) {
+		
+		Debug.Log ("In Callback");
+		if(FB.IsLoggedIn) {
+			//	showLoggedIn();
+			//StartCoroutine("ParseLogin");
+			PostFeed();
 		} else {
 			Debug.Log ("FBLoginCallback: User canceled login");
 		}

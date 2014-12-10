@@ -5,15 +5,10 @@ public class ScoreInfo : MonoBehaviour {
 
 
 	//static float startTime ;
+
+	float scoreWidth = Screen.width * 0.28f;
+	float scoreHeight = Screen.height * 0.16f;
 	
-	
-	float xoffset= 100;
-	
-	float scoreWidth = 20;
-	
-	float scoreHeight = 20;
-	
-	GUIStyle style ;
 
 
 	
@@ -21,29 +16,14 @@ public class ScoreInfo : MonoBehaviour {
 	void Start()
 	{
 		GameScore.Score = 0;
-		style = new GUIStyle();
-		style.normal.textColor= Color.white;
-		style.fontSize=25;
 	}
 
 	public static void StartTimer()
 	{
 
-	//	startTime = Time.time;
-
 	}
 	void Update()
 	{
-	/*	if (PlayerController.isMoving) 
-		{
-			GameScore.Score = (int)(Time.time-startTime);
-		}
-*/
-
-		
-		
-		
-		
 	
 	}
 	
@@ -51,8 +31,9 @@ public class ScoreInfo : MonoBehaviour {
 	void OnGUI()
 	{
 		GUI.skin = skin;
-
-		GUI.Label(new Rect(Screen.width*0.5f,0,scoreWidth,scoreHeight), "" + GameScore.Score, style);
+		GUI.skin.label.fontSize = (int)(Screen.height * 0.125f);
+		Debug.Log (GUI.skin.label.fontSize);
+		GUI.Label(new Rect(Screen.width*0.36f,0,scoreWidth,scoreHeight), "" + GameScore.Score);
 	}
 	
 
