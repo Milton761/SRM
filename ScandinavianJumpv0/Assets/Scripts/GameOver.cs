@@ -29,7 +29,6 @@ public class GameOver : MonoBehaviour {
 	}
 	void OnGUI () {
 
-		banner.ShowBanner ();
 
 		GUI.skin = skin;
 		GUI.skin.button.fontSize = (int)(0.032f * Screen.height);
@@ -42,38 +41,25 @@ public class GameOver : MonoBehaviour {
 		if (GUI.Button (new Rect (Screen.width * 0.19f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Ranking"))
 		{
 			StartCoroutine("StartLogin");
-<<<<<<< HEAD
 
-=======
->>>>>>> 7e85309347e316461797a290905f718ef2a748f8
 		}
 		if (GUI.Button (new Rect (Screen.width * 0.43f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Menu"))
 		{
 			StartCoroutine("StartLevel");
-<<<<<<< HEAD
 
-=======
->>>>>>> 7e85309347e316461797a290905f718ef2a748f8
 		}
 
 		if (GUI.Button (new Rect (Screen.width * 0.67f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Share"))
 		{
 			StartCoroutine("StartLoginShare");
-<<<<<<< HEAD
 
-=======
->>>>>>> 7e85309347e316461797a290905f718ef2a748f8
 		}
 	}
 
 	IEnumerator StartLevel()
 	{
-<<<<<<< HEAD
 		banner.HideBanner();
 
-=======
-		
->>>>>>> 7e85309347e316461797a290905f718ef2a748f8
 		var audio = Camera.main.GetComponent<AudioSource>();
 		
 		audio.Play();
@@ -85,32 +71,20 @@ public class GameOver : MonoBehaviour {
 
 	IEnumerator StartLogin()
 	{
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 7e85309347e316461797a290905f718ef2a748f8
 		var audio = Camera.main.GetComponent<AudioSource>();
 		
 		audio.Play();
 		
 		yield return new WaitForSeconds(audio.clip.length);
-<<<<<<< HEAD
 
 
-=======
-		
->>>>>>> 7e85309347e316461797a290905f718ef2a748f8
 		FBLogin();
 	}
 
 	IEnumerator StartLoginShare()
 	{
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 7e85309347e316461797a290905f718ef2a748f8
 		var audio = Camera.main.GetComponent<AudioSource>();
 		
 		audio.Play();
