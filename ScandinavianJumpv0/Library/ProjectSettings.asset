@@ -98,7 +98,11 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   AndroidKeystoreName: C:/Users/Carola/Documents/GitHub/scandinavian/scandinavian-project/ScandinavianJumpv0/user.keystore
+<<<<<<< HEAD
   AndroidKeyaliasName: 
+=======
+  AndroidKeyaliasName: key
+>>>>>>> 7e85309347e316461797a290905f718ef2a748f8
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:
   - m_BuildTarget: 

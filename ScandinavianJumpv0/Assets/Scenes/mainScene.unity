@@ -593,9 +593,15 @@ GameObject:
   - 33: {fileID: 546440421}
   - 23: {fileID: 546440419}
   - 61: {fileID: 546440420}
+<<<<<<< HEAD
   - 114: {fileID: 546440423}
   - 82: {fileID: 546440418}
   - 114: {fileID: 546440422}
+=======
+  - 114: {fileID: 546440422}
+  - 114: {fileID: 546440423}
+  - 82: {fileID: 546440418}
+>>>>>>> 7e85309347e316461797a290905f718ef2a748f8
   m_Layer: 0
   m_Name: deadBlock
   m_TagString: Untagged
@@ -1044,6 +1050,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1323951647
 GameObject:
   m_ObjectHideFlags: 0
