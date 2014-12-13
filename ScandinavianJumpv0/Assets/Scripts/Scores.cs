@@ -19,7 +19,19 @@ public class Scores : MonoBehaviour {
 	void OnMouseUp()
 	{
 		GetComponent<TextMesh>().color = OnMouseExitColor;
+		StartCoroutine("StartLevel");
+	}
 
-		Application.LoadLevel (3);
+
+	IEnumerator StartLevel()
+	{
+		
+		var audio = Camera.main.GetComponent<AudioSource>();
+		
+		audio.Play();
+		
+		yield return new WaitForSeconds(audio.clip.length);
+		
+		Application.LoadLevel (3);  
 	}
 }

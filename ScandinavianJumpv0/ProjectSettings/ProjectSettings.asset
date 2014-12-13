@@ -97,8 +97,8 @@ PlayerSettings:
   iPadHighResLandscapeSplashScreen: {fileID: 0}
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  AndroidKeystoreName: C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/user.keystore
-  AndroidKeyaliasName: key
+  AndroidKeystoreName: C:/Users/Carola/Documents/GitHub/scandinavian/scandinavian-project/ScandinavianJumpv0/user.keystore
+  AndroidKeyaliasName: 
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:
   - m_BuildTarget: 

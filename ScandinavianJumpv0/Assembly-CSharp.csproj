@@ -85,6 +85,7 @@
      <Compile Include="Assets\ProCore\Prototype\Scripts\RebuildMeshOnWake.cs" />
      <Compile Include="Assets\Scripts\AddScoreOnCollision.cs" />
      <Compile Include="Assets\Scripts\AspectUtility.cs" />
+     <Compile Include="Assets\Scripts\BackgroundSound.cs" />
      <Compile Include="Assets\Scripts\BuildingsBackground.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\CameraFollower.cs" />
@@ -120,6 +121,7 @@
      <Compile Include="Assets\Scripts\StopCamera.cs" />
      <Compile Include="Assets\Scripts\SumScore.cs" />
      <Compile Include="Assets\Scripts\admobScript.cs" />
+     <Compile Include="Assets\Scripts\bgAnim.cs" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-zu\common_strings.xml" />
      <None Include="Assets\Plugins\Android\facebook\res\layout\com_facebook_usersettingsfragment.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-ta-rIN\common_strings.xml" />
@@ -272,22 +274,22 @@
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values\wallet_attrs.xml" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\color\common_signin_btn_text_light.xml" />
  <Reference Include="Parse.Unity">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/Parse.Unity.dll</HintPath>
+ <HintPath>C:/Users/JanFranco/Desktop/ScandinavianJumpv0/Assets/Parse.Unity.dll</HintPath>
  </Reference>
  <Reference Include="IFacebook">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
+ <HintPath>C:/Users/JanFranco/Desktop/ScandinavianJumpv0/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Prototype/Classes/ProBuilderCore.dll</HintPath>
+ <HintPath>C:/Users/JanFranco/Desktop/ScandinavianJumpv0/Assets/ProCore/Prototype/Classes/ProBuilderCore.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderMeshOps">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Prototype/Classes/ProBuilderMeshOps.dll</HintPath>
+ <HintPath>C:/Users/JanFranco/Desktop/ScandinavianJumpv0/Assets/ProCore/Prototype/Classes/ProBuilderMeshOps.dll</HintPath>
  </Reference>
  <Reference Include="ProCore">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
+ <HintPath>C:/Users/JanFranco/Desktop/ScandinavianJumpv0/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven">
- <HintPath>C:/Users/JanFranco/Documents/GitHub/BITBUCKET/scandinavian-project/ScandinavianJumpv0/Assets/ProCore/Shared/Code/SixBySeven.dll</HintPath>
+ <HintPath>C:/Users/JanFranco/Desktop/ScandinavianJumpv0/Assets/ProCore/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

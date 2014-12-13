@@ -114,9 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 5
+  speed: {x: 1.20000005, y: 0}
+  direction: {x: -1, y: 0}
   tileSizeZ: 17
-  BuildingN: 0
 --- !u!212 &138405526
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 3
+  speed: {x: 2, y: 0}
+  direction: {x: -1, y: 0}
   tileSizeZ: 26
-  BuildingN: 1
 --- !u!212 &365502021
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -386,9 +386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 3
+  speed: {x: 2, y: 0}
+  direction: {x: -1, y: 0}
   tileSizeZ: 26
-  BuildingN: 1
 --- !u!212 &445240551
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -519,7 +519,6 @@ GameObject:
   - 212: {fileID: 529072565}
   - 61: {fileID: 529072564}
   - 114: {fileID: 529072563}
-  - 82: {fileID: 529072567}
   m_Layer: 0
   m_Name: deadBlock
   m_TagString: Untagged
@@ -583,17 +582,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1323951653}
   m_RootOrder: 0
---- !u!82 &529072567
+--- !u!1 &546440416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 546440417}
+  - 33: {fileID: 546440421}
+  - 23: {fileID: 546440419}
+  - 61: {fileID: 546440420}
+  - 114: {fileID: 546440423}
+  - 82: {fileID: 546440418}
+  - 114: {fileID: 546440422}
+  m_Layer: 0
+  m_Name: deadBlock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &546440417
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 546440416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.6201105, y: -1.01724422, z: 0}
+  m_LocalScale: {x: 1, y: 10, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1323951653}
+  m_RootOrder: 2
+--- !u!82 &546440418
 AudioSource:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 529072562}
+  m_GameObject: {fileID: 546440416}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: e87824ffbd2ca4327b6ce49d0337b2a0, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .898999989
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -641,37 +673,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!1 &546440416
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 546440417}
-  - 33: {fileID: 546440421}
-  - 23: {fileID: 546440419}
-  - 61: {fileID: 546440420}
-  - 114: {fileID: 546440422}
-  m_Layer: 0
-  m_Name: deadBlock
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &546440417
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 546440416}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.1950026, y: -1.01724422, z: 0}
-  m_LocalScale: {x: 1, y: 10, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1323951653}
-  m_RootOrder: 2
 --- !u!23 &546440419
 Renderer:
   m_ObjectHideFlags: 0
@@ -721,6 +722,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab036f963afd47d489bb8388157d40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &546440423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 546440416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 450c4fc6dbe4747fcb835e31ac7bc6f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 94f6255293e294c9294cd68e2d087de6, type: 3}
+  - {fileID: 8300000, guid: 3d37da78b4b90481bad3b5a00cf2566c, type: 3}
+  - {fileID: 8300000, guid: 70d62a09868c64c24b5458e7fb875c47, type: 3}
+  min: 10
+  max: 20
 --- !u!1 &625568315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,6 +1243,7 @@ GameObject:
   - 50: {fileID: 1412775568}
   - 114: {fileID: 1412775571}
   - 61: {fileID: 1412775567}
+  - 114: {fileID: 1412775572}
   m_Layer: 0
   m_Name: grey
   m_TagString: NoDestroy
@@ -1304,6 +1323,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skin: {fileID: 11400000, guid: 82a2a6634a632af40ac4893bb3499b59, type: 2}
+--- !u!114 &1412775572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1412775566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c118e4c1ab43c4db1704aed2032451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1512526248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,9 +1374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 5
+  speed: {x: 1.20000005, y: 0}
+  direction: {x: -1, y: 0}
   tileSizeZ: 17
-  BuildingN: 0
 --- !u!212 &1512526251
 SpriteRenderer:
   m_ObjectHideFlags: 0

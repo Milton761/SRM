@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 12001, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: scoreSkin
   m_EditorClassIdentifier: 
-  m_Font: {fileID: 12800000, guid: b6e3d957e77e6144091ea7b96038cc8c, type: 3}
+  m_Font: {fileID: 12800000, guid: 784a44bd54b25f04e923a971effb94c0, type: 3}
   m_box:
     m_Name: box
     m_Normal:
@@ -193,7 +193,7 @@ MonoBehaviour:
     m_Name: label
     m_Normal:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -235,10 +235,10 @@ MonoBehaviour:
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: b6e3d957e77e6144091ea7b96038cc8c, type: 3}
-    m_FontSize: 25
+    m_Font: {fileID: 12800000, guid: 784a44bd54b25f04e923a971effb94c0, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
-    m_Alignment: 0
+    m_Alignment: 1
     m_WordWrap: 1
     m_RichText: 1
     m_TextClipping: 1

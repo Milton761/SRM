@@ -16,7 +16,7 @@ public class GameOver : MonoBehaviour {
 	int UserScore {get;set;}
 	public GUISkin skin = null;
 
-
+	public admobScript banner;
 	
 	void Start()
 	{
@@ -24,6 +24,7 @@ public class GameOver : MonoBehaviour {
 		scoreY = Screen.height * 0.62f;
 		scoreWidth = Screen.width * 0.29f;
 		scoreHeight = Screen.height * 0.17f;
+		banner.ShowBanner ();
 
 	}
 	void OnGUI () {
@@ -39,22 +40,65 @@ public class GameOver : MonoBehaviour {
 
 		if (GUI.Button (new Rect (Screen.width * 0.19f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Ranking"))
 		{
-			FBLogin();
+			StartCoroutine("StartLogin");
+
 		}
 		if (GUI.Button (new Rect (Screen.width * 0.43f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Menu"))
 		{
-			Application.LoadLevel(1);
+			StartCoroutine("StartLevel");
+
 		}
 
 		if (GUI.Button (new Rect (Screen.width * 0.67f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Share"))
 		{
-			PostFeed();
+			StartCoroutine("StartLoginShare");
+
 		}
 	}
+
+	IEnumerator StartLevel()
+	{
+		banner.HideBanner();
+
+		var audio = Camera.main.GetComponent<AudioSource>();
+		
+		audio.Play();
+		
+		yield return new WaitForSeconds(audio.clip.length);
+		
+		Application.LoadLevel (1);  
+	}
+
+	IEnumerator StartLogin()
+	{
+
+		var audio = Camera.main.GetComponent<AudioSource>();
+		
+		audio.Play();
+		
+		yield return new WaitForSeconds(audio.clip.length);
+
+
+		FBLogin();
+	}
+
+	IEnumerator StartLoginShare()
+	{
+
+		var audio = Camera.main.GetComponent<AudioSource>();
+		
+		audio.Play();
+		
+		yield return new WaitForSeconds(audio.clip.length);
+		
+		FBLoginShare();  
+	}
+
 
 
 	void OnMouseUp()
 	{
+		banner.HideBanner ();
 		Application.LoadLevel (2);
 	}
 
@@ -76,12 +120,43 @@ public class GameOver : MonoBehaviour {
 		
 	}
 
+	private void FBLoginShare() {
+		Debug.Log ("In FBLogin");
+		
+		if(FB.IsLoggedIn)
+		{
+			
+			Debug.Log("Already Logged In");
+			PostFeed();
+		}
+		else
+		{
+			FB.Login("user_about_me, user_relationships, user_birthday, user_location", FBLoginShareCallback);
+		}
+		
+		
+	}
+
 	private void FBLoginCallback(FBResult result) {
 		
 		Debug.Log ("In Callback");
 		if(FB.IsLoggedIn) {
 			//	showLoggedIn();
 			StartCoroutine("ParseLogin");
+		} else {
+			Debug.Log ("FBLoginCallback: User canceled login");
+		}
+		
+		
+	}
+
+	private void FBLoginShareCallback(FBResult result) {
+		
+		Debug.Log ("In Callback");
+		if(FB.IsLoggedIn) {
+			//	showLoggedIn();
+			//StartCoroutine("ParseLogin");
+			PostFeed();
 		} else {
 			Debug.Log ("FBLoginCallback: User canceled login");
 		}
@@ -234,12 +309,17 @@ public class GameOver : MonoBehaviour {
 				var userScore = results.FirstOrDefault();
 				
 				int prev_score = userScore.Get<int>("score");
+
+
+				var highscore = PlayerPrefs.GetInt ("highscore");
+
+				var localScore = (highscore>UserScore)? highscore: UserScore;
 				
 				Debug.Log ("Updating: new score: "+UserScore+" prev "+prev_score);
 				
-				if(prev_score< UserScore)
+				if(prev_score< localScore)
 				{
-					userScore["score"] = UserScore;
+					userScore["score"] = localScore;
 					userScore["geo_pos"] = userLocation;
 					userScore.SaveAsync();
 				}
