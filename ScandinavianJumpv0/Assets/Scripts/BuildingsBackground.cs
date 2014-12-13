@@ -1,35 +1,39 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
 
 public class BuildingsBackground : MonoBehaviour
 {
-	public float scrollSpeed;
-	public float tileSizeZ;
+	public Vector2 speed = new Vector2(10, 10);
+	public Vector2 direction = new Vector2(-1, 0);
 	private Vector3 startPosition;
-	public int BuildingN;
-	float prevCameraPos;
+	public float tileSizeZ;
 
-	void Start ()
+	void Start()
 	{
 		startPosition = transform.position;
-		//Debug.Log (startPosition);
-		prevCameraPos = 0;
 	}
-	
-	void Update ()
+
+	void Update()
 	{
-		float newPosition = Mathf.Repeat(Time.time * scrollSpeed, tileSizeZ);
-		transform.position = startPosition + Vector3.right * newPosition;
+		Vector3 movement = new Vector3(speed.x * direction.x, speed.y * direction.y, 0);
+		
+		movement *= Time.deltaTime;
+		gameObject.transform.Translate (movement);
+
 		float currentCameraPos = Camera.main.transform.position.x;
 		Vector3 currentBuildingPos = transform.position;
+
 		if (currentCameraPos > currentBuildingPos.x + tileSizeZ) 
 		{
-			Vector3 tmp = currentBuildingPos;
-			tmp.x = startPosition.x + (2*tileSizeZ);
-			transform.position = tmp;
-			startPosition = tmp;
-//			Debug.Log (BuildingN + ")  " + transform.position.x + "  " + currentCameraPos);
-
+			Vector3 lastPosition = new Vector3(currentBuildingPos.x + tileSizeZ, currentBuildingPos.y,currentBuildingPos.z);
+			transform.position = new Vector3(lastPosition.x + tileSizeZ, currentBuildingPos.y, currentBuildingPos.z);
 		}
+
 	}
+	
+
 }
+
+

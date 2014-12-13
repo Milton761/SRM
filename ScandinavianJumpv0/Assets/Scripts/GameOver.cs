@@ -24,11 +24,11 @@ public class GameOver : MonoBehaviour {
 		scoreY = Screen.height * 0.62f;
 		scoreWidth = Screen.width * 0.29f;
 		scoreHeight = Screen.height * 0.17f;
+		banner.ShowBanner ();
 
 	}
 	void OnGUI () {
 
-		banner.ShowBanner ();
 
 		GUI.skin = skin;
 		GUI.skin.button.fontSize = (int)(0.032f * Screen.height);
@@ -41,21 +41,25 @@ public class GameOver : MonoBehaviour {
 		if (GUI.Button (new Rect (Screen.width * 0.19f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Ranking"))
 		{
 			StartCoroutine("StartLogin");
+
 		}
 		if (GUI.Button (new Rect (Screen.width * 0.43f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Menu"))
 		{
 			StartCoroutine("StartLevel");
+
 		}
 
 		if (GUI.Button (new Rect (Screen.width * 0.67f, Screen.height * 0.85f, Screen.width * 0.14f, Screen.height * 0.08f), "Share"))
 		{
 			StartCoroutine("StartLoginShare");
+
 		}
 	}
 
 	IEnumerator StartLevel()
 	{
-		
+		banner.HideBanner();
+
 		var audio = Camera.main.GetComponent<AudioSource>();
 		
 		audio.Play();
@@ -67,19 +71,20 @@ public class GameOver : MonoBehaviour {
 
 	IEnumerator StartLogin()
 	{
-		
+
 		var audio = Camera.main.GetComponent<AudioSource>();
 		
 		audio.Play();
 		
 		yield return new WaitForSeconds(audio.clip.length);
-		
+
+
 		FBLogin();
 	}
 
 	IEnumerator StartLoginShare()
 	{
-		
+
 		var audio = Camera.main.GetComponent<AudioSource>();
 		
 		audio.Play();
@@ -93,6 +98,7 @@ public class GameOver : MonoBehaviour {
 
 	void OnMouseUp()
 	{
+		banner.HideBanner ();
 		Application.LoadLevel (2);
 	}
 

@@ -114,9 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 5
+  speed: {x: 1.20000005, y: 0}
+  direction: {x: -1, y: 0}
   tileSizeZ: 17
-  BuildingN: 0
 --- !u!212 &138405526
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 3
+  speed: {x: 2, y: 0}
+  direction: {x: -1, y: 0}
   tileSizeZ: 26
-  BuildingN: 1
 --- !u!212 &365502021
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -386,9 +386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 3
+  speed: {x: 2, y: 0}
+  direction: {x: -1, y: 0}
   tileSizeZ: 26
-  BuildingN: 1
 --- !u!212 &445240551
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -593,9 +593,9 @@ GameObject:
   - 33: {fileID: 546440421}
   - 23: {fileID: 546440419}
   - 61: {fileID: 546440420}
-  - 114: {fileID: 546440422}
   - 114: {fileID: 546440423}
   - 82: {fileID: 546440418}
+  - 114: {fileID: 546440422}
   m_Layer: 0
   m_Name: deadBlock
   m_TagString: Untagged
@@ -1044,7 +1044,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1323951647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,9 +1374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 5
+  speed: {x: 1.20000005, y: 0}
+  direction: {x: -1, y: 0}
   tileSizeZ: 17
-  BuildingN: 0
 --- !u!212 &1512526251
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -7,10 +7,13 @@ public class LocationScript : MonoBehaviour {
 	static public double Latitude;
 	static public double Longitude;
 	IEnumerator Start() {
+
+		Latitude = -16.404092;
+		Longitude= -71.524717 ;
 		if (!Input.location.isEnabledByUser)
 			 yield return null;
 		
-		Input.location.Start(500f,0.1f);
+		Input.location.Start(300f,0.1f);
 		int maxWait = 20;
 		while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0) {
 			yield return new WaitForSeconds(1);
