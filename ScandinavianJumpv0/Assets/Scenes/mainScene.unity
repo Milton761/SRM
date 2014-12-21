@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 1.20000005, y: 0}
+  speed: {x: .600000024, y: 0}
   direction: {x: -1, y: 0}
   tileSizeZ: 17
 --- !u!212 &138405526
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 2, y: 0}
+  speed: {x: 1, y: 0}
   direction: {x: -1, y: 0}
   tileSizeZ: 26
 --- !u!212 &365502021
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 2, y: 0}
+  speed: {x: 1, y: 0}
   direction: {x: -1, y: 0}
   tileSizeZ: 26
 --- !u!212 &445240551
@@ -876,7 +876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0
-  tileSizeZ: 117.08577
+  tileSizeZ: 117.0858
 --- !u!1 &1284952609
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +890,7 @@ GameObject:
   - 114: {fileID: 1284952614}
   - 82: {fileID: 1284952615}
   - 95: {fileID: 1284952616}
+  - 114: {fileID: 1284952617}
   - 61: {fileID: 1284952610}
   m_Layer: 0
   m_Name: player
@@ -907,7 +908,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 5.48000002, y: 6.80999947}
+  m_Size: {x: 2.75999999, y: 3.43999982}
   m_Center: {x: 0, y: 0}
 --- !u!50 &1284952611
 Rigidbody2D:
@@ -944,7 +945,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c1679a3d3731a4b58b4ae30fc2c940c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe8ed3637baa148b09d355be56e03790, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1284952613
 Transform:
@@ -953,8 +954,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1284952609}
   m_LocalRotation: {x: -.000815123902, y: .0238375645, z: -.00895953923, w: .999675393}
-  m_LocalPosition: {x: 5.36275148, y: .0687762201, z: -.630617142}
-  m_LocalScale: {x: .25, y: .25, z: 1}
+  m_LocalPosition: {x: 5.36275148, y: .0687759966, z: -.630617142}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1044,6 +1045,19 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1284952617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1284952609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7184ba1cbcbb54af18965e3465f42cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite_limit: 8
 --- !u!1 &1323951647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1171,7 @@ AudioSource:
   m_GameObject: {fileID: 1323951647}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: c22bc3d10fabb694a9b8dc29ffd4a53b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1ad967785a2a44d2987a808daacf75ad, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1374,7 +1388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 1.20000005, y: 0}
+  speed: {x: .600000024, y: 0}
   direction: {x: -1, y: 0}
   tileSizeZ: 17
 --- !u!212 &1512526251
@@ -1459,7 +1473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0
-  tileSizeZ: 117.08577
+  tileSizeZ: 117.0858
 --- !u!212 &1813609657
 SpriteRenderer:
   m_ObjectHideFlags: 0

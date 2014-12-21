@@ -4,8 +4,12 @@ using System.Collections;
 public class AddScoreOnCollision : MonoBehaviour {
 
 	bool score = false;
+
+	AudioSource scoreLimitAudio;
 	// Use this for initialization
 	void Start () {
+
+		scoreLimitAudio = Camera.main.GetComponent<AudioSource>();
 	
 	}
 	
@@ -36,11 +40,19 @@ public class AddScoreOnCollision : MonoBehaviour {
 
 			if(GameScore.Score!=0 && GameScore.Score%SettingsScript.ScoreLimit==0)
 			{
-				//GameObject.FindGameObjectWithTag("Player").transform.rigidbody2D.gravityScale+=SettingsScript.GravityIncrease;
-				PlayerController.touchTimeScale +=0.001f;
+				//Save sprite id
+				PlayerPrefs.SetInt("spriteid",GameScore.Score/SettingsScript.ScoreLimit+1);
+				PlayerPrefs.Save();
+
+				//Increase difficulty
+				PlayerController.touchTimeScale +=SettingsScript.PlayerTouchTimeScale;
 				Camera.main.GetComponent<CameraMovement>().constantMovement+=SettingsScript.CameraMovementIncrease;
-				Camera.main.GetComponent<AudioSource>().Play();
+				scoreLimitAudio.Play();
 			}
+
+
+
+		
 			
 		}
 		

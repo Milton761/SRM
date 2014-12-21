@@ -16,7 +16,7 @@ public class GameOver : MonoBehaviour {
 	int UserScore {get;set;}
 	public GUISkin skin = null;
 
-	public admobScript banner;
+	 admobScript banner;
 	
 	void Start()
 	{
@@ -24,7 +24,14 @@ public class GameOver : MonoBehaviour {
 		scoreY = Screen.height * 0.62f;
 		scoreWidth = Screen.width * 0.29f;
 		scoreHeight = Screen.height * 0.17f;
+
+		banner = AdManager.banner;
+
+		banner.HideBanner();
 		banner.ShowBanner ();
+
+
+
 
 	}
 	void OnGUI () {
@@ -98,7 +105,10 @@ public class GameOver : MonoBehaviour {
 
 	void OnMouseUp()
 	{
-		banner.HideBanner ();
+
+			banner.HideBanner ();
+		
+
 		Application.LoadLevel (2);
 	}
 

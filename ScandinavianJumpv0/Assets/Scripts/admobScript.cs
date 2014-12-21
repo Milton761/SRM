@@ -38,6 +38,8 @@ public class admobScript : MonoBehaviour {
 		bannerView.AdLeftApplication += HandleAdLeftApplication;
 		// Load a banner ad.
 		bannerView.LoadAd(createAdRequest());
+
+		bannerView.Hide();
 	}
 	
 	private void RequestInterstitial()
