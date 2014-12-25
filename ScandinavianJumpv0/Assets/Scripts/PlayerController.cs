@@ -37,6 +37,14 @@ public class PlayerController : MonoBehaviour {
 
 	float jumpBarHeight;
 
+	public AudioClip [] jumpSounds;
+
+	int jumpSoundsIndex ;
+
+	AudioSource audioSource;
+
+	Animator animator;
+
 
 	void Start () {
 	
@@ -50,11 +58,17 @@ public class PlayerController : MonoBehaviour {
 
 		jumpBarOffset = Screen.height*0.15f;
 		jumpBarWidthOffset = Screen.width*0.05f;
-		SetTextureColor(Color.red,progressBarEmpty);
+		SetTextureColor(Color.white,progressBarEmpty);
 		
-		SetTextureColor(Color.white,progressBarFull);
+		SetTextureColor(Color.red,progressBarFull);
 
 		isHoldDown = false;
+
+		audioSource = GetComponent<AudioSource>();
+
+		animator = GetComponent<Animator>();
+
+		jumpSoundsIndex = 0;
 
 	
 	}
@@ -86,9 +100,16 @@ public class PlayerController : MonoBehaviour {
 			jump = true;
 
 			isHoldDown = false;
-			GetComponent<AudioSource>().Play();
 
-			GetComponent<Animator>().SetBool("anim_jump",true);
+			audioSource.clip = jumpSounds[jumpSoundsIndex%jumpSounds.Length];
+			jumpSoundsIndex++;
+
+			audioSource.Play();
+
+		
+
+
+			animator.SetBool("anim_jump",true);
 		}
 
 	

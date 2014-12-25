@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: .600000024, y: 0}
+  speed: {x: -5, y: 0}
   direction: {x: -1, y: 0}
   tileSizeZ: 17
 --- !u!212 &138405526
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 1, y: 0}
+  speed: {x: -3, y: 0}
   direction: {x: -1, y: 0}
   tileSizeZ: 26
 --- !u!212 &365502021
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 1, y: 0}
+  speed: {x: -3, y: 0}
   direction: {x: -1, y: 0}
   tileSizeZ: 26
 --- !u!212 &445240551
@@ -625,7 +625,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: .898999989
+  m_Volume: .856000006
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -973,6 +973,9 @@ MonoBehaviour:
   Yforce: 750
   Xforce: 500
   progress: 0
+  jumpSounds:
+  - {fileID: 8300000, guid: e5a591b11032f504e9d99fd96994fa4a, type: 3}
+  - {fileID: 8300000, guid: 7ff6233b3f66e471f955023c78fdbca1, type: 3}
 --- !u!82 &1284952615
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1388,7 +1391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68621be800607a4c9af11fa6da4fd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: .600000024, y: 0}
+  speed: {x: -5, y: 0}
   direction: {x: -1, y: 0}
   tileSizeZ: 17
 --- !u!212 &1512526251

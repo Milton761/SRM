@@ -115,7 +115,7 @@ public class PlayerController2 : MonoBehaviour {
 			
 			
 			//Distance from player to Click position
-			float distance = Vector3.Magnitude(distvector);
+			//float distance = Vector3.Magnitude(distvector);
 			
 			distvector.Normalize();
 			

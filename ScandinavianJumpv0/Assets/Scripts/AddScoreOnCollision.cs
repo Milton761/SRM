@@ -40,10 +40,6 @@ public class AddScoreOnCollision : MonoBehaviour {
 
 			if(GameScore.Score!=0 && GameScore.Score%SettingsScript.ScoreLimit==0)
 			{
-				//Save sprite id
-				PlayerPrefs.SetInt("spriteid",GameScore.Score/SettingsScript.ScoreLimit+1);
-				PlayerPrefs.Save();
-
 				//Increase difficulty
 				PlayerController.touchTimeScale +=SettingsScript.PlayerTouchTimeScale;
 				Camera.main.GetComponent<CameraMovement>().constantMovement+=SettingsScript.CameraMovementIncrease;
@@ -52,9 +48,14 @@ public class AddScoreOnCollision : MonoBehaviour {
 
 
 
+
+
 		
 			
 		}
 		
 	}
+
+
+
 }

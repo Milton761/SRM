@@ -7,7 +7,7 @@ public class ObstacleMovement : MonoBehaviour {
 	
 	int randomMin = 1;
 	public int randomMax ;
-	float initialForce = 2f;
+//	float initialForce = 2f;
 	void Start () {
 	
 			

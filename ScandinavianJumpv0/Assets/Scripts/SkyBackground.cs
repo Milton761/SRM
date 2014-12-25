@@ -5,11 +5,11 @@ public class SkyBackground : MonoBehaviour
 {
 	public float scrollSpeed;
 	public float tileSizeZ;
-	private Vector3 startPosition;
+//	private Vector3 startPosition;
 	
 	void Start ()
 	{
-		startPosition = transform.position;
+		//startPosition = transform.position;
 	}
 	
 	void Update ()

@@ -8,22 +8,22 @@ using Facebook.MiniJSON;
 
 public class GuiScore : MonoBehaviour {
 
-	float myScoreX, myScoreY, myScoreWidth, myScoreHeight;
+//	float myScoreX, myScoreY, myScoreWidth, myScoreHeight;
 
-	float maxScoreX, maxScoreY, maxScoreWidth, maxScoreHeight;
+	//float maxScoreX, maxScoreY, maxScoreWidth, maxScoreHeight;
 
 	public GUISkin skin = null;
 
 	void Start()
 	{
-		myScoreX = Screen.width * 0.31f;
+		/*myScoreX = Screen.width * 0.31f;
 		myScoreY = Screen.height * 0.56f;
 		myScoreWidth = Screen.width * 0.1f;
-		myScoreHeight = Screen.height * 0.14f;
-		maxScoreX = Screen.width * 0.53f;
+		myScoreHeight = Screen.height * 0.14f;*/
+		/*maxScoreX = Screen.width * 0.53f;
 		maxScoreY = Screen.height * 0.56f;
 		maxScoreWidth = Screen.width * 0.15f;
-		maxScoreHeight = Screen.height * 0.14f;
+		maxScoreHeight = Screen.height * 0.14f;*/
 
 		try
 		{
@@ -48,8 +48,7 @@ public class GuiScore : MonoBehaviour {
 		// do some settings here that are needed in the component
 		// set the text
 		GUI.skin = skin;
-		int score = PlayerPrefs.GetInt ("score");
-		int highscore = PlayerPrefs.GetInt ("highscore");
+
 		//score
 		//GUI.Label (new Rect (myScoreX, myScoreY, myScoreWidth, myScoreHeight), score.ToString());
 		//highscore
@@ -70,7 +69,7 @@ public class GuiScore : MonoBehaviour {
 		GetComponent<TextMesh>().color = OnMouseExitColor;
 	}
 	
-	bool quit = false;
+//	bool quit = false;
 	
 	void OnMouseUp()
 	{

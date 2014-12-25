@@ -72,8 +72,8 @@ public class admobScript : MonoBehaviour {
 	{
 		return new AdRequest.Builder()
 			//Borrar estas lineas cuando entren a produccion (Publiquen)
-			.AddTestDevice(AdRequest.TestDeviceSimulator)
-				.AddTestDevice("0123456789ABCDEF0123456789ABCDEF")
+			//.AddTestDevice(AdRequest.TestDeviceSimulator)
+			//	.AddTestDevice("0123456789ABCDEF0123456789ABCDEF")
 				//Fin de borrar
 				.AddKeyword("game")
 				.SetGender(Gender.Male)

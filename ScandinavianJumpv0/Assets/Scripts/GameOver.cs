@@ -27,10 +27,16 @@ public class GameOver : MonoBehaviour {
 
 		banner = AdManager.banner;
 
-		banner.HideBanner();
-		banner.ShowBanner ();
+	
+			Debug.Log ("Showing banner");
+			banner.HideBanner();
+			banner.ShowBanner ();
+		
 
+		UserScore= PlayerPrefs.GetInt ("score");
 
+		UnlockAddon(UserScore);
+	
 
 
 	}
@@ -41,7 +47,7 @@ public class GameOver : MonoBehaviour {
 		GUI.skin.button.fontSize = (int)(0.032f * Screen.height);
 		GUI.skin.label.fontSize = (int)(0.052f * Screen.height);
 
-		UserScore= PlayerPrefs.GetInt ("score");
+
 		//score
 		GUI.Label (new Rect (scoreX, scoreY, scoreWidth, scoreHeight), "Your Score: " + UserScore.ToString ());
 
@@ -65,6 +71,7 @@ public class GameOver : MonoBehaviour {
 
 	IEnumerator StartLevel()
 	{
+
 		banner.HideBanner();
 
 		var audio = Camera.main.GetComponent<AudioSource>();
@@ -269,6 +276,50 @@ public class GameOver : MonoBehaviour {
 		StartCoroutine("SaveScore");
 	}
 
+	int GetSpriteID(int Score)
+	{
+
+		if(Score<SettingsScript.SpriteChangerLimits[0])
+		{
+
+			return 1;
+		}
+		else
+		{
+			for (int i = 0; i < SettingsScript.SpriteChangerLimits.Length; i++) 
+			{
+				if(Score<=SettingsScript.SpriteChangerLimits[i])
+				{
+					//Save sprite id
+					return i+2;
+				}
+			}
+
+		}
+
+
+		return SettingsScript.SpriteChangerLimits.Length-1;
+		
+		
+	}
+
+	void UnlockAddon(int Score)
+	{
+
+		int last_sprite_id = PlayerPrefs.GetInt("spriteid");
+		int new_sprite_id = GetSpriteID(Score);
+
+		if(new_sprite_id>last_sprite_id)
+		{
+			PlayerPrefs.SetInt("spriteid",new_sprite_id);
+			PlayerPrefs.Save();
+		}
+		
+	}
+
+
+
+
 	IEnumerator   SaveScore()
 	{
 		//FB.API("me?fields=name", Facebook.HttpMethod.GET, UserCallBack);
@@ -290,7 +341,8 @@ public class GameOver : MonoBehaviour {
 
 			ParseGeoPoint userLocation = new ParseGeoPoint(LocationScript.Latitude,LocationScript.Longitude);
 			
-			
+			var highscore = PlayerPrefs.GetInt ("highscore");
+
 			if(results.Count()==0)
 			{
 				//If its the first time
@@ -321,7 +373,9 @@ public class GameOver : MonoBehaviour {
 				int prev_score = userScore.Get<int>("score");
 
 
-				var highscore = PlayerPrefs.GetInt ("highscore");
+			
+
+				//Use highest score, lastest score or local highscore
 
 				var localScore = (highscore>UserScore)? highscore: UserScore;
 				
@@ -332,6 +386,21 @@ public class GameOver : MonoBehaviour {
 					userScore["score"] = localScore;
 					userScore["geo_pos"] = userLocation;
 					userScore.SaveAsync();
+				}
+				else
+				{
+						//Prev Global Score is greater
+
+					UnlockAddon(prev_score);
+
+					//Update Local HighScore
+
+
+					PlayerPrefs.SetInt("highscore",prev_score);
+					PlayerPrefs.Save();
+
+
+
 				}
 				
 				
